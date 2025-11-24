@@ -7,14 +7,15 @@
         <x>0</x>
         <y>0</y>
         <width>400</width>
-        <height>140</height>
+        <height>160</height>
       </rect>
     </property>
     <property name="windowTitle">
       <string>KDE‑Trans Settings</string>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-      
+
+    <layout class="QVBoxLayout" name="mainVerticalLayout">
+
       <item>
         <widget class="QLabel" name="labelOpacity">
           <property name="text">
@@ -22,9 +23,10 @@
           </property>
         </widget>
       </item>
-      
+
       <item>
-        <layout class="QHBoxLayout" name="horizontalSliderLayout">
+        <layout class="QHBoxLayout" name="opacitySliderLayout">
+
           <item>
             <widget class="QSlider" name="kcfg_windowOpacityPercentage">
               <property name="orientation">
@@ -50,6 +52,7 @@
               </property>
             </widget>
           </item>
+
           <item>
             <widget class="QLabel" name="labelCurrentValue">
               <property name="text">
@@ -66,6 +69,7 @@
               </property>
             </widget>
           </item>
+
           <item>
             <widget class="QLabel" name="labelPercentSign">
               <property name="text">
@@ -82,22 +86,57 @@
               </property>
             </widget>
           </item>
+
         </layout>
       </item>
-      
+
       <item>
-        <widget class="QLabel" name="labelHint">
+        <widget class="QLabel" name="labelExcludedApps">
           <property name="text">
-            <string>Lower = more transparent, Higher = more opaque</string>
+            <string>Excluded Applications (comma-separated)</string>
           </property>
-          <property name="wordWrap">
-            <bool>true</bool>
+          <property name="margin">
+            <number>10</number>
           </property>
         </widget>
       </item>
+
+      <item>
+        <widget class="QLineEdit" name="kcfg_excludedWindows">
+          <property name="toolTip">
+            <string>Enter comma-separated list of application classes to exclude from transparency</string>
+          </property>
+          <property name="margin">
+            <number>10</number>
+          </property>
+        </widget>
+      </item>
+
+      <item>
+        <widget class="QCheckBox" name="kcfg_showNewWindowNames">
+          <property name="text">
+            <string>Show new window names in logs</string>
+          </property>
+          <property name="toolTip">
+            <string>Enable to log resourceClass/resourceName/caption of windows when they appear</string>
+          </property>
+        </widget>
+      </item>
+
+      <item>
+        <widget class="QCheckBox" name="kcfg_showDebugLogs">
+          <property name="text">
+            <string>Show debug logs</string>
+          </property>
+          <property name="toolTip">
+            <string>Enable to show log messages (useful for debugging or viewing cache usage)</string>
+          </property>
+        </widget>
+      </item>
+
     </layout>
   </widget>
-  
+
   <connections>
     <connection>
       <sender>kcfg_windowOpacityPercentage</sender>
@@ -106,6 +145,6 @@
       <slot>setNum(int)</slot>
     </connection>
   </connections>
-  
+
   <resources/>
 </ui>

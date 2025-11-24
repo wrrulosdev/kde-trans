@@ -12,5 +12,22 @@
       <max>100</max>
       <step>1</step>
     </entry>
+
+    <entry name="excludedWindows" type="string">
+      <default>[dolphin]</default>
+      <description>Comma-separated list of window classes to exclude from transparency</description>
+    </entry>
+
+    <entry name="showNewWindowNames" type="Bool">
+      <default>false</default>
+      <label>Show new window names in logs</label>
+      <description>When enabled, prints resourceClass/resourceName/caption when a new window appears</description>
+    </entry>
+
+    <entry name="showDebugLogs" type="Bool">
+      <default>false</default>
+      <label>Display debug logs</label>
+      <description>When enabled, it prints messages about how the cache is being used, among other things</description>
+    </entry>
   </group>
 </kcfg>
