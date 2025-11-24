@@ -11,7 +11,7 @@ const DEFAULT_OPACITY = 0.7;
  * @param {number} opacity - The opacity level to set (range 0.0 to 1.0).
  */
 function setTransparency(win, opacity) {
-  if (!win || !win.normalWindow || win.isFullScreen) return;
+  if (!win || !win.normalWindow || win.fullScreen) return;
 
   try {
     win.opacity = opacity;
