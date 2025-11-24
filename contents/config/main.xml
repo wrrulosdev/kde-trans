@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name="kde-transparency"/>
+  <group name="TransparencySettings">
+    <entry name="windowOpacityPercentage" type="Int">
+      <default>70</default>
+      <label>Window Opacity (%)</label>
+      <description>Set how transparent windows should be (lower = more transparent)</description>
+      <min>10</min>
+      <max>100</max>
+      <step>1</step>
+    </entry>
+  </group>
+</kcfg>

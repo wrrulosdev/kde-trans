@@ -1,0 +1,20 @@
+{
+  "KPlugin": {
+    "Name": "kde-trans",
+    "Description": "Make all windows transparent in KDE Plasma (global window transparency)",
+    "Icon": "preferences-system-windows",
+    "Authors": [
+      {
+        "Name": "Pedro Agustin Vega (wrrulos)",
+        "Email": "pedroagustinvega@proton.me"
+      }
+    ],
+    "Id": "kde-trans",
+    "Version": "1.0.0",
+    "License": "GPL-3.0-or-later",
+    "Website": "https://github.com/wrrulosdev/kde-trans"
+  },
+  "X-Plasma-API": "javascript",
+  "X-Plasma-MainScript": "contents/code/main.js",
+  "KPackageStructure": "KWin/Script"
+}
