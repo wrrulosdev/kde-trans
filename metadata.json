@@ -15,6 +15,10 @@
     "Website": "https://github.com/wrrulosdev/kde-trans"
   },
   "X-Plasma-API": "javascript",
-  "X-Plasma-MainScript": "contents/code/main.js",
-  "KPackageStructure": "KWin/Script"
+  "X-Plasma-MainScript": "code/main.js",
+  "KPackageStructure": "KWin/Script",
+  "X-KDE-ServiceTypes": [
+    "KWin/Script"
+  ],
+  "X-KDE-ConfigModule": "kwin/effects/configs/kcm_kwin4_genericscripted"
 }

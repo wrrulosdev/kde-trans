@@ -1,47 +1,51 @@
+/**
+ * Default opacity value used when user configuration is unavailable.
+ */
 const DEFAULT_OPACITY = 0.7;
 
 /**
- * Sets the opacity of a given window.
- * @param {Object} win - The window object to modify.
- * @param {number} opacity - The opacity value (0 to 1).
+ * Applies the specified opacity to a given window, 
+ * excluding non-normal windows and fullscreen windows to prevent visual issues.
+ *
+ * @param {KWin.AbstractClient} win - The window object to modify.
+ * @param {number} opacity - The opacity level to set (range 0.0 to 1.0).
  */
 function setTransparency(win, opacity) {
-  if (!win) return;
+  if (!win || !win.normalWindow || win.isFullScreen) return;
+
   try {
     win.opacity = opacity;
   } catch (e) {
-    print(`Error setting opacity for window: ${e}`);
+    print(`Error setting opacity for window ${win.resourceClass}: ${e}`);
   }
 }
 
 /**
- * Reads the user-configured opacity (percentage) from config,
- * clamps it between 10 and 100, then converts to 0–1.
- * Uses DEFAULT_OPACITY as fallback.
- * @returns {number}
+ * Retrieves the user-configured opacity percentage from settings,
+ * clamps the value between 30% and 100%, then converts it to a normalized decimal.
+ *
+ * @returns {number} Normalized opacity value between 0.3 and 1.0
  */
 function getUserOpacity() {
   let raw = readConfig("windowOpacityPercentage", DEFAULT_OPACITY * 100);
-  raw = Math.min(Math.max(raw, 10), 100);
+  raw = Math.min(Math.max(raw, 30), 100);
   return raw / 100;
 }
 
 /**
- * Applies transparency to all existing windows according to user setting.
+ * Applies the current user-configured transparency to all existing windows.
  */
 function applyTransparencyToAll() {
   const wins = workspace.windowList();
   const opacity = getUserOpacity();
-  
+
   for (const win of wins) {
     setTransparency(win, opacity);
   }
 }
 
-workspace.clientAdded.connect(win => {
-  setTimeout(() => {
-    setTransparency(win, getUserOpacity());
-  }, 100);
+workspace.windowAdded.connect(win => {
+  setTransparency(win, getUserOpacity());
 });
 
 applyTransparencyToAll();
