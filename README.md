@@ -100,6 +100,10 @@ The easiest way to install **kde-trans** is through the built-in KWin Script Sto
 - **ui/config.ui** → User interface for adjusting opacity.  
 - **contents/config/main.xml** → Configuration schema exposed to KDE.
 
+## Link to the KDE Store
+
+https://store.kde.org/p/2330253
+
 ## License
 
 GPL-3.0-or-later
